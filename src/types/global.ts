@@ -30,6 +30,7 @@ declare global {
   var mapName: HTMLInputElement;
   var religionsNumber: HTMLInputElement;
   var distanceUnitInput: HTMLInputElement;
+  var heightUnit: HTMLSelectElement;
 
   var rivers: Selection<SVGElement, unknown, null, undefined>;
   var oceanLayers: Selection<SVGGElement, unknown, null, undefined>;
@@ -87,4 +88,5 @@ declare global {
   var $: (selector: any) => any;
   var scale: number;
   var changeFont: () => void;
+  var getFriendlyHeight: (coords: [number, number]) => string;
 }
