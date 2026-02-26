@@ -330,10 +330,12 @@ function editHeightmap(options) {
       c.y = p[1];
     }
 
+    // save zone grid cells to restore them later
     const zoneGridCellsMap = new Map();
     for (const zone of pack.zones) {
-      if (!zone.cells || !zone.cells.length) continue;
-      zoneGridCellsMap.set(zone.i, zone.cells.map(i => pack.cells.g[i]));
+      if (!zone.cells?.length) continue;
+      const zoneGridCells = zone.cells.map(i => pack.cells.g[i]);
+      zoneGridCellsMap.set(zone.i, unique(zoneGridCells));
     }
 
     Features.markupGrid();
@@ -451,10 +453,15 @@ function editHeightmap(options) {
       gridToPackMap.get(g).push(i);
     }
 
+    // restore zone cells
     for (const zone of pack.zones) {
       const gridCells = zoneGridCellsMap.get(zone.i);
-      if (!gridCells || !gridCells.length) continue;
-      zone.cells = gridCells.flatMap(g => gridToPackMap.get(g) || []);
+      if (gridCells?.length) {
+        const packCells = gridCells.flatMap(g => gridToPackMap.get(g) || []);
+        zone.cells = unique(packCells);
+      } else {
+        zone.cells = [];
+      }
     }
 
     // recalculate ice
@@ -665,7 +672,10 @@ function editHeightmap(options) {
       if (power === 0) return tip("Power should not be zero", false, "error");
 
       const heights = grid.cells.h;
-      const operation = power > 0 ? HeightmapGenerator.addRange.bind(HeightmapGenerator) : HeightmapGenerator.addTrough.bind(HeightmapGenerator);
+      const operation =
+        power > 0
+          ? HeightmapGenerator.addRange.bind(HeightmapGenerator)
+          : HeightmapGenerator.addTrough.bind(HeightmapGenerator);
       HeightmapGenerator.setGraph(grid);
       operation("1", String(Math.abs(power)), null, null, fromCell, toCell);
       const changedHeights = HeightmapGenerator.getHeights();

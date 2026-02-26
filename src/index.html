@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -138,13 +138,32 @@
       }
     </style>
 
-    <link rel="preload" href="index.css?v=1.109.1" as="style" onload="this.onload=null; this.rel='stylesheet'" />
-    <link rel="preload" href="icons.css" as="style" onload="this.onload=null; this.rel='stylesheet'" />
+    <link
+      rel="preload"
+      href="index.css?v=1.109.1"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <link
+      rel="preload"
+      href="icons.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
     <link
       rel="preload"
       href="libs/jquery-ui.css?v=1.106.5"
       as="style"
-      onload="this.onload=null; this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
   </head>
   <body>
@@ -4289,7 +4308,9 @@
             id="templateCA"
             data-tip="Find or share custom template on Cartography Assets portal"
             class="icon-drafting-compass"
-            onclick="openURL('https://cartographyassets.com/asset-category/specific-assets/azgaars-generator/templates')"
+            onclick="
+              openURL('https://cartographyassets.com/asset-category/specific-assets/azgaars-generator/templates')
+            "
           ></button>
           <button
             id="templateTutorial"
@@ -6120,7 +6141,10 @@
               id="showLabels"
               class="checkbox"
               type="checkbox"
-              onchange="hideLabels.checked = !this.checked; invokeActiveZooming()"
+              onchange="
+                hideLabels.checked = !this.checked;
+                invokeActiveZooming();
+              "
               checked=""
             />
             <label for="showLabels" class="checkbox-label">Show all labels</label>
@@ -8512,7 +8536,7 @@
     <script defer src="modules/ui/editors.js?v=1.112.1"></script>
     <script defer src="modules/ui/tools.js?v=1.111.0"></script>
     <script defer src="modules/ui/world-configurator.js?v=1.105.4"></script>
-    <script defer src="modules/ui/heightmap-editor.js?v=1.112.2"></script>
+    <script defer src="modules/ui/heightmap-editor.js?v=1.113.0"></script>
     <script defer src="modules/ui/provinces-editor.js?v=1.108.1"></script>
     <script defer src="modules/ui/biomes-editor.js?v=1.112.0"></script>
     <script defer src="modules/ui/namesbase-editor.js?v=1.105.11"></script>
@@ -8552,7 +8576,7 @@
     <script defer src="libs/rgbquant.min.js"></script>
     <script defer src="libs/jquery.ui.touch-punch.min.js"></script>
     <script defer src="modules/io/save.js?v=1.111.0"></script>
-    <script defer src="modules/io/load.js?v=1.111.0"></script>
+    <script defer src="modules/io/load.js?v=1.113.0"></script>
     <script defer src="modules/io/cloud.js?v=1.106.0"></script>
     <script defer src="modules/io/export.js?v=1.112.2"></script>
   </body>
