@@ -2748,23 +2748,38 @@
         <button id="labelSizeShow" data-tip="Show the font size section" class="icon-text-height"></button>
         <div id="labelSizeSection" style="display: none">
           <button id="labelSizeHide" data-tip="Hide the font size section" class="icon-text-height"></button>
-          <input
-            id="labelStartOffset"
-            data-tip="Set starting offset for the particular label"
-            type="range"
-            min="20"
-            max="80"
-            style="width: 8em"
-          />
-          <i class="icon-text-height"></i>
+          <span data-tip="Set relative size for the particular label">Size:</span>
           <input
             id="labelRelativeSize"
-            data-tip="Set relative size for the particular label"
+            data-tip="Set relative size for the particular label (% of group default)"
             type="number"
             min="30"
             max="300"
             step="1"
             style="width: 4.5em"
+          />
+        </div>
+
+        <button id="labelOffsetShow" data-tip="Show the label offset section" class="icon-sliders"></button>
+        <div id="labelOffsetSection" style="display: none">
+          <button id="labelOffsetHide" data-tip="Hide the label offset section" class="icon-sliders"></button>
+          <span data-tip="Set starting offset for the particular label">Offset:</span>
+          <input
+            id="labelStartOffset"
+            data-tip="Set starting offset for the particular label (% along the path)"
+            type="range"
+            min="20"
+            max="80"
+            style="width: 8em"
+          />
+          <input
+            id="labelStartOffsetValue"
+            type="number"
+            min="20"
+            max="80"
+            step="1"
+            style="width: 3.5em"
+            data-tip="Set starting offset numerically"
           />
         </div>
 
@@ -8548,7 +8563,7 @@
     <script defer src="modules/ui/ice-editor.js?v=1.111.0"></script>
     <script defer src="modules/ui/lakes-editor.js?v=1.106.0"></script>
     <script defer src="modules/ui/coastline-editor.js?v=1.99.00"></script>
-    <script defer src="modules/ui/labels-editor.js?v=1.106.0"></script>
+    <script defer src="modules/ui/labels-editor.js?v=1.113.2"></script>
     <script defer src="modules/ui/rivers-editor.js?v=1.106.0"></script>
     <script defer src="modules/ui/rivers-creator.js?v=1.106.0"></script>
     <script defer src="modules/ui/relief-editor.js?v=1.99.00"></script>
